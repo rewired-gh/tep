@@ -1,3 +1,4 @@
+/// Overview: Handle command-line operations.
 use std::path::PathBuf;
 
 use structopt::StructOpt;

@@ -1,3 +1,4 @@
+/// Overview: Process (cook) the source (raw) content.
 use crate::rule::Rule;
 use crate::tree::Tree;
 
