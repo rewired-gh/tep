@@ -1,3 +1,4 @@
+name: Release
 on:
   release:
     types: [created]
@@ -24,6 +25,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           RUSTTARGET: ${{ matrix.target }}
           EXTRA_FILES: "README.md"
-          SRC_DIR: "/"
           ARCHIVE_TYPES: ${{ matrix.archive }}
           MINIFY: "yes"
