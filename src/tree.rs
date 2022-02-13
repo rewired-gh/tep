@@ -1,6 +1,6 @@
-use std::collections::HashMap;
 use crate::node::Node;
 use crate::rule::Rule;
+use std::collections::HashMap;
 
 pub struct Tree {
     rules: Vec<Rule>,
@@ -11,7 +11,10 @@ pub struct Tree {
 
 impl Tree {
     pub fn from(rules: Vec<Rule>) -> Tree {
-        let rules_from_chars = rules.iter().map(|rule| rule.from.chars().collect()).collect();
+        let rules_from_chars = rules
+            .iter()
+            .map(|rule| rule.from.chars().collect())
+            .collect();
 
         let mut tree = Tree {
             rules,
@@ -58,7 +61,12 @@ impl Tree {
         self.nodes[current_index].rule_index = Some(rule_index);
     }
 
-    pub fn query(&self, chars: &Vec<char>, start: usize, chars_len: usize) -> Option<(&str, usize)> {
+    pub fn query(
+        &self,
+        chars: &Vec<char>,
+        start: usize,
+        chars_len: usize,
+    ) -> Option<(&str, usize)> {
         let mut pivot = start;
         let mut depth = 0usize;
         let mut current_index = 0usize;
@@ -77,7 +85,7 @@ impl Tree {
                     }
                     current_children_map_index = self.nodes[current_index].children_map_index;
                 }
-                None => break
+                None => break,
             }
             pivot += 1;
             depth += 1;
@@ -85,7 +93,7 @@ impl Tree {
 
         match rule_index {
             Some(index) => Some((&self.rules[index].to, depth)),
-            None => None
+            None => None,
         }
     }
 }
