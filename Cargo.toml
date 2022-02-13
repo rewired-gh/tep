@@ -1,7 +1,12 @@
 [package]
 name = "tep"
+description = "A command-line tool for converting Chinese punctuations to English punctuations."
 version = "0.1.0"
 edition = "2021"
+license = "BSD-3-Clause"
+homepage = "https://github.com/h0gan1ee/tep"
+repository = "https://github.com/h0gan1ee/tep"
+readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
