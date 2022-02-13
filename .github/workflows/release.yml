@@ -1,13 +1,10 @@
-- name: Rust Release binary
-  uses: rust-build/rust-build.action@v1.2.6
-
 on:
   release:
     types: [created]
 
 jobs:
   release:
-    name: release ${{ matrix.target }}
+    name: release ${{ matrix.target }} (with non-required env)
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -16,14 +13,17 @@ jobs:
           - target: x86_64-pc-windows-gnu
             archive: zip
           - target: x86_64-unknown-linux-musl
-            archive: tar.gz tar.xz
+            archive: tar.gz
           - target: x86_64-apple-darwin
             archive: zip
     steps:
       - uses: actions/checkout@master
       - name: Compile and release
-        uses: rust-build/rust-build.action@latest
+        uses: rust-build/rust-build.action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           RUSTTARGET: ${{ matrix.target }}
+          EXTRA_FILES: "README.md"
+          SRC_DIR: "/"
           ARCHIVE_TYPES: ${{ matrix.archive }}
+          MINIFY: "yes"
