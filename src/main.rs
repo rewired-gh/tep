@@ -1,15 +1,17 @@
+use std::fs::{File, OpenOptions};
+use std::io::{BufReader, Read, Write};
+
+use anyhow::Result;
+use structopt::StructOpt;
+
+use crate::cli::Opt;
+use crate::cook::cook;
+
 mod cli;
 mod cook;
 mod node;
 mod rule;
 mod tree;
-
-use crate::cli::Opt;
-use crate::cook::cook;
-use anyhow::Result;
-use std::fs::{File, OpenOptions};
-use std::io::{BufReader, Read, Write};
-use structopt::StructOpt;
 
 fn main() -> Result<()> {
     let Opt { input, output } = Opt::from_args();

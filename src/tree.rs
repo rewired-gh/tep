@@ -1,6 +1,7 @@
+use std::collections::HashMap;
+
 use crate::node::Node;
 use crate::rule::Rule;
-use std::collections::HashMap;
 
 pub struct Tree {
     rules: Vec<Rule>,
@@ -73,10 +74,7 @@ impl Tree {
         let mut current_children_map_index = self.nodes[current_index].children_map_index;
         let mut rule_index: Option<usize> = None;
 
-        loop {
-            if pivot >= chars_len {
-                break;
-            }
+        while pivot < chars_len {
             match self.children_map[current_children_map_index].get(&chars[pivot]) {
                 Some(&index) => {
                     current_index = index;
