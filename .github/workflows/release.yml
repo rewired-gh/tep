@@ -23,6 +23,7 @@ jobs:
         uses: rust-build/rust-build.action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          SRC_DIR: "."
           RUSTTARGET: ${{ matrix.target }}
           EXTRA_FILES: "README.md"
           ARCHIVE_TYPES: ${{ matrix.archive }}
