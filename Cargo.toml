@@ -1,6 +1,6 @@
 [package]
 name = "tep"
-description = "A command-line tool for converting Chinese punctuations to English punctuations."
+description = "A blazingly fast command-line tool for converting Chinese punctuations to English punctuations."
 version = "0.1.2"
 edition = "2021"
 license = "BSD-3-Clause"

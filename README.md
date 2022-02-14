@@ -4,7 +4,7 @@
 
 [Rust package on crates.io](https://crates.io/crates/tep)
 
-A command-line tool for converting Chinese punctuations **t**o **E**nglish **p**unctuations.
+A blazingly fast command-line tool for converting Chinese punctuations **t**o **E**nglish **p**unctuations.
 
 <img width="800" alt="Screen Shot 2022-02-13 at 4 39 55 PM" src="https://user-images.githubusercontent.com/39949564/153745648-b667e6cd-5c45-481e-be69-ebae93fc7558.png">
 

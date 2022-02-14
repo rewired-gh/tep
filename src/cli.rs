@@ -6,7 +6,7 @@ use structopt::StructOpt;
 #[derive(Debug, StructOpt)]
 #[structopt(
     name = "tep",
-    about = "A command-line tool for converting Chinese punctuations to English punctuations."
+    about = "A blazingly fast command-line tool for converting Chinese punctuations to English punctuations."
 )]
 pub struct Opt {
     /// Input file
