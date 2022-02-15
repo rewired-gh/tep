@@ -1,6 +1,6 @@
 # tep
 
-[![crates.io](https://img.shields.io/crates/v/tep)](https://crates.io/crates/tep) [![downloads](https://img.shields.io/crates/d/tep)](https://crates.io/crates/tep) [![release](https://img.shields.io/github/v/release/h0gan1ee/tep)](https://github.com/h0gan1ee/tep/releases/latest) [![build](https://img.shields.io/github/workflow/status/h0gan1ee/tep/Rust)](https://github.com/h0gan1ee/tep/actions/workflows/rust.yml)
+[![PR Welcome](https://img.shields.io/badge/PR-Welcome-yellow)](https://github.com/h0gan1ee/tep/pulls) [![crates.io](https://img.shields.io/crates/v/tep)](https://crates.io/crates/tep) [![downloads](https://img.shields.io/crates/d/tep)](https://crates.io/crates/tep) [![release](https://img.shields.io/github/v/release/h0gan1ee/tep)](https://github.com/h0gan1ee/tep/releases/latest) [![build](https://img.shields.io/github/workflow/status/h0gan1ee/tep/Rust)](https://github.com/h0gan1ee/tep/actions/workflows/rust.yml)
 
 [Rust package on crates.io](https://crates.io/crates/tep)
 
