@@ -8,6 +8,12 @@ A blazingly fast command-line tool for converting Chinese punctuations **t**o **
 
 <img width="800" alt="Screen Shot" src="https://user-images.githubusercontent.com/39949564/153745648-b667e6cd-5c45-481e-be69-ebae93fc7558.png">
 
+[TOC]
+
+## Installation
+
+`// TODO`
+
 ## Command-line Usage
 
 ### Usage Overview
