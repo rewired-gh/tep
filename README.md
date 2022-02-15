@@ -8,15 +8,15 @@ A blazingly fast command-line tool for converting Chinese punctuations **t**o **
 
 <img width="800" alt="Screen Shot" src="https://user-images.githubusercontent.com/39949564/153745648-b667e6cd-5c45-481e-be69-ebae93fc7558.png">
 
-## 1. <a name='Installation'></a>Installation
+## Installation
 
 ```sh
 cargo install tep
 ```
 
-## 2. <a name='Command-lineUsage'></a>Command-line Usage
+## Command-line Usage
 
-### 2.1. <a name='UsageOverview'></a>Usage Overview
+### Usage Overview
 
 ```
 USAGE:
