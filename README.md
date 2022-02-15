@@ -6,17 +6,24 @@
 
 A blazingly fast command-line tool for converting Chinese punctuations **t**o **E**nglish **p**unctuations.
 
-<img width="800" alt="Screen Shot 2022-02-13 at 4 39 55 PM" src="https://user-images.githubusercontent.com/39949564/153745648-b667e6cd-5c45-481e-be69-ebae93fc7558.png">
+<img width="800" alt="Screen Shot" src="https://user-images.githubusercontent.com/39949564/153745648-b667e6cd-5c45-481e-be69-ebae93fc7558.png">
 
-## User Guide
+## Command-line Usage
 
-### Usage
+### Usage Overview
 
-```bash
-tep <input> [output]
+```
+USAGE:
+    tep [FLAGS] <input> [output]
+
+FLAGS:
+    -h, --help       Prints help information
+    -t, --trim       Trim empty character(s) for each line and the content
+    -V, --version    Prints version information
+
+ARGS:
+    <input>     Input file
+    <output>    Output file, same as input file if not present
 ```
 
-### Arguments
-
-- `<input>`: Input file
-- `<output>`: Output file, same as input file if not present
+- `<>` means the argument is required, while `[]` means optional.
