@@ -16,9 +16,7 @@ mod tests {
     #[test]
     fn cook_test() {
         let input = open("assets/test.txt");
-        let expected_output = open("assets/test_mod.txt");
         let expected_trimed_output = open("assets/test_mod_trimmed.txt");
-        assert_eq!(expected_output, cook(&input, false));
-        assert_eq!(expected_trimed_output, cook(&input, true));
+        assert_eq!(expected_trimed_output, cook(&input));
     }
 }

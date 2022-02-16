@@ -16,8 +16,4 @@ pub struct Opt {
     /// Output file, same as input file if not present
     #[structopt(parse(from_os_str))]
     pub output: Option<PathBuf>,
-
-    /// Trim empty character(s) for each line and the content
-    #[structopt(short, long)]
-    pub trim: bool,
 }

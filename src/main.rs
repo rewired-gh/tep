@@ -12,17 +12,13 @@ use cli::Opt;
 use common::cook::cook;
 
 fn main() -> Result<()> {
-    let Opt {
-        input,
-        output,
-        trim,
-    } = Opt::from_args();
+    let Opt { input, output } = Opt::from_args();
     let input_file = File::open(&input)?;
 
     let mut input_content = String::new();
     BufReader::new(&input_file).read_to_string(&mut input_content)?;
 
-    let output_content = cook(&input_content, trim);
+    let output_content = cook(&input_content);
 
     let mut output_file;
     match output {

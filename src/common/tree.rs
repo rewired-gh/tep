@@ -1,7 +1,6 @@
 /// Overview: Tree to match substring with rule.
 use std::collections::HashMap;
 
-use super::node::Node;
 use super::rule::Rule;
 
 pub struct Tree {
@@ -82,4 +81,9 @@ impl Tree {
 
         rule_index.map(|index| (self.rules[index].to, depth))
     }
+}
+
+struct Node {
+    pub rule_index: Option<usize>,
+    pub children_map: HashMap<char, usize>,
 }

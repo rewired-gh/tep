@@ -1,8 +1,9 @@
 /// Overview: Process (cook) the source (raw) content.
 use super::rule::Rule;
 use super::tree::Tree;
+use super::trim::trim;
 
-pub fn cook(raw: &str, is_trim: bool) -> String {
+pub fn cook(raw: &str) -> String {
     let raw_chars: Vec<char> = raw.chars().collect();
     let raw_len = raw_chars.len();
     let mut cooked = String::with_capacity(2 * raw.len());
@@ -23,15 +24,5 @@ pub fn cook(raw: &str, is_trim: bool) -> String {
         }
     }
 
-    if is_trim {
-        cooked
-            .lines()
-            .map(|line| line.trim())
-            .collect::<Vec<&str>>()
-            .join("\n")
-            .trim()
-            .to_string()
-    } else {
-        cooked
-    }
+    trim(&cooked)
 }
