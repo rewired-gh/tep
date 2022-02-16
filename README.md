@@ -22,11 +22,10 @@ cargo install tep
 
 ```
 USAGE:
-    tep [FLAGS] <input> [output]
+    tep <input> [output]
 
 FLAGS:
     -h, --help       Prints help information
-    -t, --trim       Trim empty character(s) for each line and the content
     -V, --version    Prints version information
 
 ARGS:
