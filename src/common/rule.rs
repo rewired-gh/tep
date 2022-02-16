@@ -7,102 +7,152 @@ pub struct Rule {
 impl Rule {
     pub fn default_rules() -> Vec<Rule> {
         Vec::from([
+            // S1
             Rule {
-                from: "。”，",
-                to: ".\", ",
+                from: "’‘",
+                to: "' '",
             },
             Rule {
-                from: "，”，",
-                to: ",\", ",
+                from: "’“",
+                to: "' \"",
             },
             Rule {
-                from: "？”，",
-                to: "?\", ",
+                from: "’「",
+                to: "' '",
             },
             Rule {
-                from: "！”，",
-                to: "!\", ",
+                from: "’『",
+                to: "' \"",
             },
             Rule {
-                from: "；”，",
-                to: ";\", ",
+                from: "’（",
+                to: "' (",
             },
             Rule {
-                from: "……”，",
-                to: "...\", ",
+                from: "’【",
+                to: "' [",
             },
             Rule {
-                from: "。’，",
-                to: ".', ",
+                from: "”‘",
+                to: "\" '",
             },
             Rule {
-                from: "，’，",
-                to: ",', ",
+                from: "”“",
+                to: "\" \"",
             },
             Rule {
-                from: "？’，",
-                to: "?', ",
+                from: "”「",
+                to: "\" '",
             },
             Rule {
-                from: "！’，",
-                to: "!', ",
+                from: "”『",
+                to: "\" \"",
             },
             Rule {
-                from: "；’，",
-                to: ";', ",
+                from: "”（",
+                to: "\" (",
             },
             Rule {
-                from: "……’，",
-                to: "...', ",
+                from: "”【",
+                to: "\" [",
             },
             Rule {
-                from: "。」，",
-                to: ".', ",
+                from: "」‘",
+                to: "' '",
             },
             Rule {
-                from: "，」，",
-                to: ",', ",
+                from: "」“",
+                to: "' \"",
             },
             Rule {
-                from: "？」，",
-                to: "?', ",
+                from: "」「",
+                to: "' '",
             },
             Rule {
-                from: "！」，",
-                to: "!', ",
+                from: "」『",
+                to: "' \"",
             },
             Rule {
-                from: "；」，",
-                to: ";', ",
+                from: "」（",
+                to: "' (",
             },
             Rule {
-                from: "……」，",
-                to: "...', ",
+                from: "」【",
+                to: "' [",
             },
             Rule {
-                from: "。』，",
-                to: ".\" ",
+                from: "』‘",
+                to: "\" '",
             },
             Rule {
-                from: "，』，",
-                to: ",\" ",
+                from: "』“",
+                to: "\" \"",
             },
             Rule {
-                from: "？』，",
-                to: "?\" ",
+                from: "』「",
+                to: "\" '",
             },
             Rule {
-                from: "！』，",
-                to: "!\" ",
+                from: "』『",
+                to: "\" \"",
             },
             Rule {
-                from: "；』，",
-                to: ";\" ",
+                from: "』（",
+                to: "\" (",
             },
             Rule {
-                from: "……』，",
-                to: "...\" ",
+                from: "』【",
+                to: "\" [",
             },
+            Rule {
+                from: "）‘",
+                to: ") '",
+            },
+            Rule {
+                from: "）“",
+                to: ") \"",
+            },
+            Rule {
+                from: "）「",
+                to: ") '",
+            },
+            Rule {
+                from: "）『",
+                to: ") \"",
+            },
+            Rule {
+                from: "）（",
+                to: ") (",
+            },
+            Rule {
+                from: "）【",
+                to: ") [",
+            },
+            Rule {
+                from: "】‘",
+                to: "] '",
+            },
+            Rule {
+                from: "】“",
+                to: "] \"",
+            },
+            Rule {
+                from: "】「",
+                to: "] '",
+            },
+            Rule {
+                from: "】『",
+                to: "] \"",
+            },
+            Rule {
+                from: "】（",
+                to: "] (",
+            },
+            Rule {
+                from: "】【",
+                to: "] [",
+            },
+            // S2
             Rule {
                 from: "。”",
                 to: ".\" ",
@@ -125,6 +175,10 @@ impl Rule {
             },
             Rule {
                 from: "……”",
+                to: "...\" ",
+            },
+            Rule {
+                from: "…”",
                 to: "...\" ",
             },
             Rule {
@@ -152,6 +206,10 @@ impl Rule {
                 to: "...' ",
             },
             Rule {
+                from: "…’",
+                to: "...' ",
+            },
+            Rule {
                 from: "。」",
                 to: ".' ",
             },
@@ -173,6 +231,10 @@ impl Rule {
             },
             Rule {
                 from: "……」",
+                to: "...' ",
+            },
+            Rule {
+                from: "…」",
                 to: "...' ",
             },
             Rule {
@@ -200,6 +262,264 @@ impl Rule {
                 to: "...\" ",
             },
             Rule {
+                from: "…』",
+                to: "...\" ",
+            },
+            Rule {
+                from: "。）",
+                to: ".) ",
+            },
+            Rule {
+                from: "，）",
+                to: ",) ",
+            },
+            Rule {
+                from: "？）",
+                to: "?) ",
+            },
+            Rule {
+                from: "！）",
+                to: "!) ",
+            },
+            Rule {
+                from: "；）",
+                to: ";) ",
+            },
+            Rule {
+                from: "……）",
+                to: "...) ",
+            },
+            Rule {
+                from: "…）",
+                to: "...) ",
+            },
+            Rule {
+                from: "。】",
+                to: ".] ",
+            },
+            Rule {
+                from: "，】",
+                to: ",] ",
+            },
+            Rule {
+                from: "？】",
+                to: "?] ",
+            },
+            Rule {
+                from: "！】",
+                to: "!] ",
+            },
+            Rule {
+                from: "；】",
+                to: ";] ",
+            },
+            Rule {
+                from: "……】",
+                to: "...] ",
+            },
+            Rule {
+                from: "…】",
+                to: "...] ",
+            },
+            // S3
+            Rule {
+                from: "”：",
+                to: "\": ",
+            },
+            Rule {
+                from: "”。",
+                to: "\". ",
+            },
+            Rule {
+                from: "”，",
+                to: "\", ",
+            },
+            Rule {
+                from: "”？",
+                to: "\"? ",
+            },
+            Rule {
+                from: "”！",
+                to: "\"! ",
+            },
+            Rule {
+                from: "”；",
+                to: "\"; ",
+            },
+            Rule {
+                from: "”……",
+                to: "\"... ",
+            },
+            Rule {
+                from: "”…",
+                to: "\"... ",
+            },
+            Rule {
+                from: "’：",
+                to: "': ",
+            },
+            Rule {
+                from: "’。",
+                to: "'. ",
+            },
+            Rule {
+                from: "’，",
+                to: "', ",
+            },
+            Rule {
+                from: "’？",
+                to: "'? ",
+            },
+            Rule {
+                from: "’！",
+                to: "'! ",
+            },
+            Rule {
+                from: "’；",
+                to: "'; ",
+            },
+            Rule {
+                from: "’……",
+                to: "'... ",
+            },
+            Rule {
+                from: "’…",
+                to: "'... ",
+            },
+            Rule {
+                from: "」：",
+                to: "': ",
+            },
+            Rule {
+                from: "」。",
+                to: "'. ",
+            },
+            Rule {
+                from: "」，",
+                to: "', ",
+            },
+            Rule {
+                from: "」？",
+                to: "'? ",
+            },
+            Rule {
+                from: "」！",
+                to: "'! ",
+            },
+            Rule {
+                from: "」；",
+                to: "'; ",
+            },
+            Rule {
+                from: "」……",
+                to: "'... ",
+            },
+            Rule {
+                from: "」…",
+                to: "'... ",
+            },
+            Rule {
+                from: "』：",
+                to: "\": ",
+            },
+            Rule {
+                from: "』。",
+                to: "\". ",
+            },
+            Rule {
+                from: "』，",
+                to: "\", ",
+            },
+            Rule {
+                from: "』？",
+                to: "\"? ",
+            },
+            Rule {
+                from: "』！",
+                to: "\"! ",
+            },
+            Rule {
+                from: "』；",
+                to: "\"; ",
+            },
+            Rule {
+                from: "』……",
+                to: "\"... ",
+            },
+            Rule {
+                from: "』…",
+                to: "\"... ",
+            },
+            Rule {
+                from: "）：",
+                to: "): ",
+            },
+            Rule {
+                from: "）。",
+                to: "). ",
+            },
+            Rule {
+                from: "），",
+                to: "), ",
+            },
+            Rule {
+                from: "）？",
+                to: ")? ",
+            },
+            Rule {
+                from: "）！",
+                to: ")! ",
+            },
+            Rule {
+                from: "）；",
+                to: "); ",
+            },
+            Rule {
+                from: "）……",
+                to: ")... ",
+            },
+            Rule {
+                from: "）…",
+                to: ")... ",
+            },
+            Rule {
+                from: "】：",
+                to: "]: ",
+            },
+            Rule {
+                from: "】。",
+                to: "]. ",
+            },
+            Rule {
+                from: "】，",
+                to: "], ",
+            },
+            Rule {
+                from: "】？",
+                to: "]? ",
+            },
+            Rule {
+                from: "】！",
+                to: "]! ",
+            },
+            Rule {
+                from: "】；",
+                to: "]; ",
+            },
+            Rule {
+                from: "】……",
+                to: "]... ",
+            },
+            Rule {
+                from: "】…",
+                to: "]... ",
+            },
+            // S4
+            Rule {
+                from: "：“",
+                to: ": \"",
+            },
+            Rule {
                 from: "。“",
                 to: ". \"",
             },
@@ -224,8 +544,16 @@ impl Rule {
                 to: "... \"",
             },
             Rule {
+                from: "…“",
+                to: "... \"",
+            },
+            Rule {
                 from: "\n“",
                 to: "\n\"",
+            },
+            Rule {
+                from: "：‘",
+                to: ": '",
             },
             Rule {
                 from: "。‘",
@@ -252,8 +580,16 @@ impl Rule {
                 to: "... '",
             },
             Rule {
+                from: "…‘",
+                to: "... '",
+            },
+            Rule {
                 from: "\n‘",
                 to: "\n'",
+            },
+            Rule {
+                from: "：『",
+                to: ": \"",
             },
             Rule {
                 from: "。『",
@@ -280,8 +616,16 @@ impl Rule {
                 to: "... \"",
             },
             Rule {
+                from: "…『",
+                to: "... \"",
+            },
+            Rule {
                 from: "\n『",
                 to: "\n\"",
+            },
+            Rule {
+                from: "：「",
+                to: ": '",
             },
             Rule {
                 from: "。「",
@@ -308,9 +652,86 @@ impl Rule {
                 to: "... '",
             },
             Rule {
+                from: "…「",
+                to: "... '",
+            },
+            Rule {
                 from: "\n「",
                 to: "\n'",
             },
+            Rule {
+                from: "：（",
+                to: ": (",
+            },
+            Rule {
+                from: "。（",
+                to: ". (",
+            },
+            Rule {
+                from: "，（",
+                to: ", (",
+            },
+            Rule {
+                from: "？（",
+                to: "? (",
+            },
+            Rule {
+                from: "！（",
+                to: "! (",
+            },
+            Rule {
+                from: "；（",
+                to: "; (",
+            },
+            Rule {
+                from: "……（",
+                to: "... (",
+            },
+            Rule {
+                from: "…（",
+                to: "... (",
+            },
+            Rule {
+                from: "\n（",
+                to: "\n(",
+            },
+            Rule {
+                from: "：【",
+                to: ": [",
+            },
+            Rule {
+                from: "。【",
+                to: ". [",
+            },
+            Rule {
+                from: "，【",
+                to: ", [",
+            },
+            Rule {
+                from: "？【",
+                to: "? [",
+            },
+            Rule {
+                from: "！【",
+                to: "! [",
+            },
+            Rule {
+                from: "；【",
+                to: "; [",
+            },
+            Rule {
+                from: "……【",
+                to: "... [",
+            },
+            Rule {
+                from: "…【",
+                to: "... [",
+            },
+            Rule {
+                from: "\n【",
+                to: "\n[",
+            },
+            // S5
             Rule {
                 from: "“",
                 to: " \"",
@@ -328,6 +749,15 @@ impl Rule {
                 to: " \"",
             },
             Rule {
+                from: "（",
+                to: " (",
+            },
+            Rule {
+                from: "【",
+                to: " [",
+            },
+            // S6
+            Rule {
                 from: "”",
                 to: "\" ",
             },
@@ -344,21 +774,14 @@ impl Rule {
                 to: "\" ",
             },
             Rule {
-                from: "（",
-                to: " (",
-            },
-            Rule {
                 from: "）",
                 to: ") ",
-            },
-            Rule {
-                from: "【",
-                to: " [",
             },
             Rule {
                 from: "】",
                 to: "] ",
             },
+            // S7
             Rule {
                 from: "——",
                 to: " - ",
@@ -388,12 +811,24 @@ impl Rule {
                 to: "... ",
             },
             Rule {
+                from: "…",
+                to: "... ",
+            },
+            Rule {
                 from: "：",
                 to: ": ",
             },
             Rule {
                 from: "、",
                 to: ", ",
+            },
+            Rule {
+                from: "—",
+                to: " - ",
+            },
+            Rule {
+                from: "～",
+                to: "~",
             },
         ])
     }
