@@ -176,7 +176,7 @@ impl Rule {
                 from: "…】",
                 to: "...] ",
             },
-            // S3
+            // S2
             Rule {
                 from: "“",
                 to: " \"",
@@ -201,7 +201,7 @@ impl Rule {
                 from: "【",
                 to: " [",
             },
-            // S4
+            // S3
             Rule {
                 from: "”",
                 to: "\" ",
@@ -226,7 +226,7 @@ impl Rule {
                 from: "】",
                 to: "] ",
             },
-            // S5
+            // S4
             Rule {
                 from: "——",
                 to: " - ",
@@ -275,7 +275,7 @@ impl Rule {
                 from: "～",
                 to: "~",
             },
-            // S6
+            // S5
             Rule {
                 from: "。》",
                 to: ".》",
