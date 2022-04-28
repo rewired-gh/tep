@@ -20,17 +20,14 @@ fn main() -> Result<()> {
 
     let output_content = cook(&input_content);
 
-    let mut output_file;
-    match output {
-        Some(file) => {
-            output_file = OpenOptions::new()
-                .write(true)
-                .create(true)
-                .truncate(true)
-                .open(file)?
-        }
-        None => output_file = OpenOptions::new().write(true).truncate(true).open(&input)?,
-    }
+    let mut output_file = match output {
+        Some(file) => OpenOptions::new()
+            .write(true)
+            .create(true)
+            .truncate(true)
+            .open(file)?,
+        None => OpenOptions::new().write(true).truncate(true).open(&input)?,
+    };
     write!(output_file, "{}", output_content)?;
 
     Ok(())

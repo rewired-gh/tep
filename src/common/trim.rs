@@ -1,5 +1,5 @@
 /// Overview: Trim redundant empty characters.
-use std::collections::HashSet;
+use super::rule;
 
 enum TrimState {
     Idle,
@@ -75,17 +75,11 @@ pub fn trim(raw: &str) -> String {
 }
 
 fn get_trim_state(ch: &char) -> TrimState {
-    let soft_marks = HashSet::from(['.', ',', ';', ':', '?', '!', '-']);
-    let breaks = HashSet::from(['\n']);
-    let hard_marks = HashSet::from([
-        '\'', '"', '(', ')', '{', '}', '[', ']', '《', '》', '〈', '〉',
-    ]);
-
-    if soft_marks.contains(ch) {
+    if rule::SOFT_MARKS.contains(ch) {
         TrimState::Ready(TrimKind::Soft)
-    } else if breaks.contains(ch) {
+    } else if rule::BREAKS.contains(ch) {
         TrimState::Ready(TrimKind::Break)
-    } else if hard_marks.contains(ch) {
+    } else if rule::HARD_MARKS.contains(ch) {
         TrimState::Ready(TrimKind::Hard)
     } else if *ch == ' ' {
         TrimState::WhitespaceUnknown
