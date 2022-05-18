@@ -18,25 +18,28 @@ enum TrimKind {
 pub fn trim(raw: &str) -> String {
     let mut trimmed = String::with_capacity(raw.len());
 
-    use TrimState::*;
     use TrimKind::*;
+    use TrimState::*;
 
-    raw.chars().fold(Ready(Break), |state, ch| {
-        let next_state = match (state, get_trim_state(&ch)) {
-            (Ready(kind), WhitespaceUnknown) |
-            (Trimming(kind), WhitespaceUnknown) => Trimming(kind),
-            (Trimming(kind), char_state) => {
-                match (kind, &char_state) {
-                    (Soft, ts) if !matches!(ts , Ready(Break)) => trimmed.push(' '),
+    raw.chars().fold(Ready(Break), |trim_state, ch| {
+        let next_state = match (trim_state, get_trim_state(&ch)) {
+            (Ready(kind), WhitespaceUnknown) | (Trimming(kind), WhitespaceUnknown) => {
+                Trimming(kind)
+            }
+            (Trimming(kind), state) => {
+                match (kind, &state) {
+                    (Soft, ts) if !matches!(ts, Ready(Break)) => trimmed.push(' '),
                     (Hard, Idle) => trimmed.push(' '),
                     _ => (),
                 }
-                char_state
+                state
             }
             (Idle, WhitespaceUnknown) => Idle,
-            (_, char_state) => char_state,
+            (_, trim_state) => trim_state,
         };
-        if !matches!(next_state, Trimming(_)) { trimmed.push(ch); }
+        if !matches!(next_state, Trimming(_)) {
+            trimmed.push(ch);
+        }
         next_state
     });
 
