@@ -27,8 +27,8 @@ pub fn trim(raw: &str) -> String {
             (Trimming(kind), WhitespaceUnknown) => Trimming(kind),
             (Trimming(kind), char_state) => {
                 match (kind, &char_state) {
-                    (Soft, Ready(Break)) => (),
-                    (Soft, _) | (Hard, Idle) => trimmed.push(' '),
+                    (Soft, ts) if !matches!(ts , Ready(Break)) => trimmed.push(' '),
+                    (Hard, Idle) => trimmed.push(' '),
                     _ => (),
                 }
                 char_state
