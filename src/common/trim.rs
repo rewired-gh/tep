@@ -17,59 +17,31 @@ enum TrimKind {
 
 pub fn trim(raw: &str) -> String {
     let mut trimmed = String::with_capacity(raw.len());
-    let mut state = TrimState::Ready(TrimKind::Break);
 
-    for ch in raw.chars() {
-        let mut should_change_state = true;
-        let mut next_state = get_trim_state(&ch);
-        match state {
-            TrimState::Ready(kind) => {
-                if matches!(next_state, TrimState::WhitespaceUnknown) {
-                    next_state = match kind {
-                        TrimKind::Soft => TrimState::Trimming(TrimKind::Soft),
-                        TrimKind::Hard => TrimState::Trimming(TrimKind::Hard),
-                        TrimKind::Break => TrimState::Trimming(TrimKind::Break),
-                    };
-                }
+    use TrimKind::*;
+    use TrimState::*;
+
+    raw.chars().fold(Ready(Break), |trim_state, ch| {
+        let next_state = match (trim_state, get_trim_state(&ch)) {
+            (Ready(kind), WhitespaceUnknown) | (Trimming(kind), WhitespaceUnknown) => {
+                Trimming(kind)
             }
-
-            TrimState::Trimming(kind) => {
-                if matches!(next_state, TrimState::WhitespaceUnknown) {
-                    should_change_state = false;
-                } else {
-                    match kind {
-                        TrimKind::Soft => {
-                            if !matches!(next_state, TrimState::Ready(TrimKind::Break)) {
-                                trimmed.push(' ');
-                            }
-                        }
-                        TrimKind::Hard => {
-                            if matches!(next_state, TrimState::Idle) {
-                                trimmed.push(' ');
-                            }
-                        }
-                        TrimKind::Break => (),
-                    }
+            (Trimming(kind), state) => {
+                match (kind, &state) {
+                    (Soft, ts) if !matches!(ts, Ready(Break)) => trimmed.push(' '),
+                    (Hard, Idle) => trimmed.push(' '),
+                    _ => (),
                 }
+                state
             }
-
-            TrimState::Idle => {
-                if matches!(next_state, TrimState::WhitespaceUnknown) {
-                    should_change_state = false;
-                }
-            }
-
-            TrimState::WhitespaceUnknown => (),
+            (Idle, WhitespaceUnknown) => Idle,
+            (_, trim_state) => trim_state,
         };
-
-        if should_change_state {
-            state = next_state;
-        }
-
-        if !matches!(state, TrimState::Trimming(_)) {
+        if !matches!(next_state, Trimming(_)) {
             trimmed.push(ch);
         }
-    }
+        next_state
+    });
 
     trimmed.trim().to_string()
 }
