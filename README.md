@@ -8,7 +8,7 @@ A blazingly fast command-line tool for converting Chinese punctuations **t**o **
 
 `tep` follows [_The Chicago Manual of Style_](https://www.chicagomanualofstyle.org/home.html), except apostrophes.
 
-<img width="800" alt="Screen Shot" src="https://user-images.githubusercontent.com/39949564/153745648-b667e6cd-5c45-481e-be69-ebae93fc7558.png">
+<img width="1233" alt="Screen Shot" src="https://user-images.githubusercontent.com/39949564/169015892-496cd12c-2afb-444d-9325-22deae5db4c8.png">
 
 ## Installation
 

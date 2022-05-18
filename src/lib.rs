@@ -5,18 +5,19 @@ pub use common::cook::cook;
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::{fs, path::PathBuf};
-
-    fn open(path: &str) -> String {
-        let mut full_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
-        full_path.push(path);
-        fs::read_to_string(full_path).expect(path)
-    }
 
     #[test]
     fn cook_test() {
-        let input = open("assets/test.txt");
-        let expected_trimed_output = open("assets/test_mod_trimmed.txt");
-        assert_eq!(expected_trimed_output, cook(&input));
+        let input = r#"《阿波罗分！〈利窍〉——你（看看！）三三，》：
+“芝加：‘他说了「谱」（起立）’哥，”土气。算法……
+过去？来；自己拿“好的”，年【月】～【在】！
+（费）
+
+  "#;
+        let expected_trimmed_output = r#"《阿波罗分! 〈利窍〉- 你 (看看!) 三三,》:
+"芝加: '他说了 '谱'(起立)' 哥," 土气. 算法...
+过去? 来; 自己拿 "好的", 年 [月] ~ [在]!
+(费)"#;
+        assert_eq!(expected_trimmed_output, cook(input));
     }
 }
